@@ -1,0 +1,27 @@
+<h1><%= @photo.title %></h1>
+
+<%= image_tag @photo.upload_url %>
+<p><%= @photo.description %></p>
+<p>Uploaded by <b><%= @photo.user.username %></b> on <%= @photo.created_at %>.</p>
+
+<% if @photo.comments.count == 0 %>
+<h2>No Comments Yet</h2>
+<% else %>
+<h2>Comments</h2>
+<ul>
+  <% @photo.comments.each do |comment| %>
+  <li>
+    <p><%= comment.body %></p>
+    <p>Posted by <b><%= comment.user.username %></b> on <%= comment.created_at %>.</p>
+  </li>
+  <% end %>
+</ul>
+<% end %>
+
+<% if @current_user %>
+<h2>Add a Comment</h2>
+<%= form_for [@photo, Comment.new] do |f| %>
+  <div><%= f.text_area :body %></div>
+  <div><%= f.submit "Post Comment" %></div>
+<% end %>
+<% end %>

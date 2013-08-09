@@ -1,0 +1,9 @@
+<h1>Sign in to Flickr</h1>
+
+<%= form_for @user, url: sessions_path do |f| %>
+  <%= flash[:error] %>
+
+  <div><%= f.text_field :email %></div>
+  <div><%= f.password_field :password %></div>
+  <div><%= f.submit "Sign in" %></div>
+<% end %>

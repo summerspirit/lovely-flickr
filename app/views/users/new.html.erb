@@ -1,0 +1,10 @@
+<h1>Sign up to Flickr</h1>
+<%= form_for @user do |f| %>
+  <%= f.error_messages %>
+
+  <div>Username: <%= f.text_field :username %></div>
+  <div>Email: <%= f.text_field :email %></div>
+  <div>Password: <%= f.password_field :password %></div>
+  <div>Confirm: <%= f.password_field :password_confirmation %></div>
+  <div><%= f.submit "Sign Up" %></div>
+<% end %>
