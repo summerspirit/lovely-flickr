@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+nick:
+  username: some-valid-username-nick
+  email: email-nick@example.com
+  password_digest: MyString-nick
+
+edward:
+  username: some-valid-username-edward
+  email: email-edward@example.com
+  password_digest: MyString-edward
