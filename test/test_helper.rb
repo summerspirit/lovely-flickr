@@ -12,4 +12,7 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def login_as(username)
+    session[:user_id] = users(username).id
+  end
 end
