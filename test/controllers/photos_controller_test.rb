@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class PhotosControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "cannot access photos index if not logged in" do
+    get :index
+    assert_redirected_to new_session_path
+  end
 end

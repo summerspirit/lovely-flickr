@@ -3,7 +3,7 @@
 nick:
   username: some-valid-username-nick
   email: email-nick@example.com
-  password_digest: MyString-nick
+  password_digest: gibberish!
 
 edward:
   username: some-valid-username-edward
