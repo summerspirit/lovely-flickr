@@ -10,6 +10,7 @@ class UserTest < ActiveSupport::TestCase
 
     u.username = "a-valid-username"
     u.email = "valid@example.com"
+
     assert u.valid?
   end
 
@@ -21,5 +22,22 @@ class UserTest < ActiveSupport::TestCase
     u2.valid?
 
     assert u2.errors[:username].any?
+  end
+
+  test "users should know about passwords" do
+    u1 = users(:nick)
+
+    password = "some strong password"
+
+    u1.password = ""
+    u1.password_confirmation = ""
+    u1.valid?
+
+    assert u1.errors[:password].any?, "passwords cannot be blank"
+
+    u1.password = password
+    u1.password_confirmation = password
+
+    assert u1.valid?, "passwords must match"
   end
 end
