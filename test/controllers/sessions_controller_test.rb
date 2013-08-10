@@ -17,4 +17,10 @@ class SessionsControllerTest < ActionController::TestCase
     post :create, user: {email: user.email, password_digest: user.password_digest}
     assert_equal session[:user_id], user.id
   end
+
+  test "destroy clears the session" do
+    session[:user_id] = 5
+    get :destroy
+    assert_nil session[:user_id]
+  end
 end
