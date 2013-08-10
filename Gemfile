@@ -46,3 +46,4 @@ gem 'debugger', group: [:development, :test]
 
 
 gem 'dynamic_form'
+gem 'carrierwave'

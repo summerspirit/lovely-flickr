@@ -19,6 +19,14 @@ class PhotosControllerTest < ActionController::TestCase
       post :create, photo: {title: "foo", description: "bar"}
     end
 
-    assert_redirected_to photo_path(assigns(:photo))
+    photo = assigns(:photo)
+    assert photo.user
+    assert_redirected_to photo_path(photo)
+  end
+
+  test "show should find a photo and render some HTML" do
+    get :show, id: photos(:one).id
+    assert_response :success
+    assert assigns(:photo)
   end
 end

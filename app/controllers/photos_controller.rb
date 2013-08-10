@@ -1,12 +1,13 @@
 class PhotosController < ApplicationController
 
-  before_action :require_current_user
+  before_action :require_current_user, except: [:show]
 
   def index
     render text: "Coming soon!"
   end
 
   def show
+    @photo = Photo.find(params[:id])
   end
 
   def new
@@ -15,7 +16,9 @@ class PhotosController < ApplicationController
 
   def create
     @photo = Photo.new(photo_params)
+    @photo.user = @current_user
     @photo.save
+
     redirect_to photo_path(@photo)
   end
 

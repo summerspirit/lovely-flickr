@@ -1,0 +1,5 @@
+<h1><%= @photo.title %></h1>
+
+<%= image_tag @photo.upload_url %>
+<p><%= @photo.description %></p>
+<p>Uploaded by <b><%= @photo.user.username %></b> on <%= @photo.created_at %>.</p>
