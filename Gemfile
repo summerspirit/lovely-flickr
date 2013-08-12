@@ -47,3 +47,4 @@ gem 'debugger', group: [:development, :test]
 
 gem 'dynamic_form'
 gem 'carrierwave'
+gem 'scoped_search'

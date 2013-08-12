@@ -29,4 +29,17 @@ class PhotosControllerTest < ActionController::TestCase
     assert_response :success
     assert assigns(:photo)
   end
+
+  test "search should find a photo" do
+    photo = photos(:one)
+    photo.title = "nice title"
+    photo.save
+
+    post :search, query: "nice title"
+
+    search_results = assigns["results"]
+    search_results_ids = search_results.map {|search_result| search_result.id }
+
+    assert search_results_ids.include?(photo.id)
+  end
 end

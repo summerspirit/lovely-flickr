@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
 
-  before_action :require_current_user, except: [:show]
+  before_action :require_current_user, except: [:show, :search]
 
   def index
     render text: "Coming soon!"
@@ -20,6 +20,10 @@ class PhotosController < ApplicationController
     @photo.save
 
     redirect_to photo_path(@photo)
+  end
+
+  def search
+    @results = Photo.search_for params[:query]
   end
 
   private
