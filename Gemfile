@@ -43,7 +43,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use debugger
 gem 'debugger', group: [:development, :test]
-
+gem 'mocha', group: [:test], require: false
 
 gem 'dynamic_form'
 gem 'carrierwave'

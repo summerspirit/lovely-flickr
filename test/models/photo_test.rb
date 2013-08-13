@@ -7,7 +7,9 @@ class PhotoTest < ActiveSupport::TestCase
     photo.save
 
     search_results = Photo.search_for "nice title"
+
     search_result_ids = search_results.map {|search_result| search_result.id }
+
     assert search_result_ids.include?(photo.id)
   end
 end

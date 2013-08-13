@@ -31,15 +31,14 @@ class PhotosControllerTest < ActionController::TestCase
   end
 
   test "search should find a photo" do
+    query_terms = "nice title"
+
     photo = photos(:one)
-    photo.title = "nice title"
+    photo.title = query_terms
     photo.save
 
-    post :search, query: "nice title"
+    Photo.expects(:search_for).with(query_terms)
 
-    search_results = assigns["results"]
-    search_results_ids = search_results.map {|search_result| search_result.id }
-
-    assert search_results_ids.include?(photo.id)
+    post :search, query: query_terms
   end
 end

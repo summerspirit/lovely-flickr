@@ -16,3 +16,5 @@ class ActiveSupport::TestCase
     session[:user_id] = users(username).id
   end
 end
+
+require 'mocha/setup'
